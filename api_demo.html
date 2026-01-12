@@ -321,8 +321,13 @@
       }
 
       @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
       }
 
       .toggle {
@@ -508,7 +513,9 @@
           return await response.json();
         } catch (error) {
           if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
-            throw new Error('CORS Error: API not accessible. The API may still be deploying or CORS is not configured. Please wait a few minutes and try again.');
+            throw new Error(
+              'CORS Error: API not accessible. The API may still be deploying or CORS is not configured. Please wait a few minutes and try again.'
+            );
           }
           throw error;
         }
@@ -520,20 +527,25 @@
         try {
           const response = await fetch(`${API_BASE_URL}/health`, {
             mode: 'cors',
-            headers: { 'Content-Type': 'application/json' }
+            headers: {'Content-Type': 'application/json'},
           });
           if (response.ok) {
             statusDiv.className = 'api-status connected';
-            statusDiv.innerHTML = '<div class="status-dot"></div><span>✓ API Connected: ' + API_BASE_URL + '</span>';
+            statusDiv.innerHTML =
+              '<div class="status-dot"></div><span>✓ API Connected: ' + API_BASE_URL + '</span>';
           } else {
             throw new Error('API returned error status');
           }
         } catch (error) {
           statusDiv.className = 'api-status error';
           if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
-            statusDiv.innerHTML = '<div class="status-dot"></div><span>✗ CORS Error: API deployment in progress. Please wait 2-3 minutes and refresh the page.</span>';
+            statusDiv.innerHTML =
+              '<div class="status-dot"></div><span>✗ CORS Error: API deployment in progress. Please wait 2-3 minutes and refresh the page.</span>';
           } else {
-            statusDiv.innerHTML = '<div class="status-dot"></div><span>✗ API Connection Error: ' + error.message + '</span>';
+            statusDiv.innerHTML =
+              '<div class="status-dot"></div><span>✗ API Connection Error: ' +
+              error.message +
+              '</span>';
           }
         }
       }
