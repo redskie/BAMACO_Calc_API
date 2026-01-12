@@ -61,6 +61,11 @@ This repo now ships a small FastAPI service that exposes the rating math used by
 3. Start the server: `uvicorn api.app:app --host 0.0.0.0 --port 8000 --reload`
 4. Open interactive docs at http://localhost:8000/docs
 
+### Production API
+
+**Live API**: https://bamaco-calc-api.onrender.com
+**Interactive Docs**: https://bamaco-calc-api.onrender.com/docs
+
 Available routes:
 
 - `GET /health` – liveness check

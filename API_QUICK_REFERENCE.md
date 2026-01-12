@@ -3,7 +3,7 @@
 ## Base URL
 
 ```
-Production: https://your-app-name.onrender.com
+Production: https://bamaco-calc-api.onrender.com
 Local: http://localhost:8000
 ```
 

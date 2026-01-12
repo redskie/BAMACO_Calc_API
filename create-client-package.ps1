@@ -19,9 +19,9 @@ Copy-Item "api_demo.html" -Destination $packageDir
 
 # Create API URL file
 Write-Host "Creating API URL file..." -ForegroundColor Yellow
-$apiUrl = Read-Host "Enter your production API URL (or press Enter for localhost)"
+$apiUrl = Read-Host "Enter your production API URL (or press Enter for default)"
 if ([string]::IsNullOrWhiteSpace($apiUrl)) {
-    $apiUrl = "http://localhost:8000"
+    $apiUrl = "https://bamaco-calc-api.onrender.com"
 }
 
 @"

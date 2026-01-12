@@ -118,7 +118,7 @@ Replace `API_BASE_URL` in your code with the production URL:
 const API_BASE_URL = 'http://localhost:8000';
 
 // To your production URL:
-const API_BASE_URL = 'https://mai-tools-api.onrender.com';
+const API_BASE_URL = 'https://bamaco-calc-api.onrender.com';
 ```
 
 **3. Test with the Demo**

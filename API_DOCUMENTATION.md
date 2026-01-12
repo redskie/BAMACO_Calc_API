@@ -29,8 +29,8 @@ The mai-tools API provides programmatic access to maimai (SEGA arcade rhythm gam
 
 ## Base URL
 
+**Production (Render)**: `https://bamaco-calc-api.onrender.com`
 **Local Development**: `http://localhost:8000`
-**Production (Render)**: `https://your-app-name.onrender.com`
 
 All endpoints return JSON responses with appropriate HTTP status codes.
 

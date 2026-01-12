@@ -428,9 +428,9 @@
     </div>
 
     <script>
-      // CONFIGURE THIS: Replace with your actual API URL
-      const API_BASE_URL = 'http://localhost:8000';
-      // For production: const API_BASE_URL = 'https://your-app-name.onrender.com';
+      // API URL - Production deployment on Render
+      const API_BASE_URL = 'https://bamaco-calc-api.onrender.com';
+      // For local development: const API_BASE_URL = 'http://localhost:8000';
 
       // Utility function for API calls
       async function callAPI(endpoint, method = 'GET', data = null) {
