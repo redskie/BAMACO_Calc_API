@@ -278,6 +278,53 @@
         font-size: 0.9rem;
       }
 
+      .api-status {
+        background: #fff3cd;
+        color: #856404;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border-left: 4px solid #ffc107;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .api-status.connected {
+        background: #d4edda;
+        color: #155724;
+        border-left-color: #28a745;
+      }
+
+      .api-status.error {
+        background: #f8d7da;
+        color: #721c24;
+        border-left-color: #dc3545;
+      }
+
+      .status-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffc107;
+        animation: pulse 2s infinite;
+      }
+
+      .api-status.connected .status-dot {
+        background: #28a745;
+        animation: none;
+      }
+
+      .api-status.error .status-dot {
+        background: #dc3545;
+        animation: none;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
       .toggle {
         margin-left: auto;
       }
@@ -330,6 +377,11 @@
         <h1>🎮 mai-tools API Demo</h1>
         <p class="subtitle">Interactive demo of the maimai rating calculation API</p>
       </header>
+
+      <div id="api-status" class="api-status">
+        <div class="status-dot"></div>
+        <span>Checking API connection...</span>
+      </div>
 
       <div class="grid">
         <!-- Rating Calculator -->
@@ -417,8 +469,8 @@
 
       <footer>
         <p>
-          <a href="API_DOCUMENTATION.md" target="_blank">Full API Documentation</a> | 
-          <a href="API_QUICK_REFERENCE.md" target="_blank">Quick Reference</a> | 
+          <a href="API_DOCUMENTATION.md" target="_blank">Full API Documentation</a> |
+          <a href="API_QUICK_REFERENCE.md" target="_blank">Quick Reference</a> |
           <a href="API_INTEGRATION_ARCHITECTURE.md" target="_blank">Architecture Guide</a>
         </p>
         <p style="margin-top: 10px; opacity: 0.8">
@@ -445,15 +497,49 @@
           options.body = JSON.stringify(data);
         }
 
-        const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
+        try {
+          const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
 
-        if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`HTTP ${response.status}: ${errorText}`);
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP ${response.status}: ${errorText}`);
+          }
+
+          return await response.json();
+        } catch (error) {
+          if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
+            throw new Error('CORS Error: API not accessible. The API may still be deploying or CORS is not configured. Please wait a few minutes and try again.');
+          }
+          throw error;
         }
-
-        return await response.json();
       }
+
+      // Check API status on page load
+      async function checkAPIStatus() {
+        const statusDiv = document.getElementById('api-status');
+        try {
+          const response = await fetch(`${API_BASE_URL}/health`, {
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' }
+          });
+          if (response.ok) {
+            statusDiv.className = 'api-status connected';
+            statusDiv.innerHTML = '<div class="status-dot"></div><span>✓ API Connected: ' + API_BASE_URL + '</span>';
+          } else {
+            throw new Error('API returned error status');
+          }
+        } catch (error) {
+          statusDiv.className = 'api-status error';
+          if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
+            statusDiv.innerHTML = '<div class="status-dot"></div><span>✗ CORS Error: API deployment in progress. Please wait 2-3 minutes and refresh the page.</span>';
+          } else {
+            statusDiv.innerHTML = '<div class="status-dot"></div><span>✗ API Connection Error: ' + error.message + '</span>';
+          }
+        }
+      }
+
+      // Check status when page loads
+      checkAPIStatus();
 
       // Rating Calculator
       document.getElementById('calculate-btn').addEventListener('click', async () => {
