@@ -1,0 +1,86 @@
+.ratingOverview {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.shareLinkItem {
+  margin: 6px 0;
+}
+
+.totalRatingRow {
+  margin-bottom: 6px;
+}
+
+.totalRating {
+  font-size: 20px;
+  background-color: #111;
+  display: inline-block;
+  color: #eee;
+  padding: 5px 20px;
+  margin-right: 12px;
+}
+
+.expandRatingOverview {
+  font-size: 0.7rem;
+}
+
+.ratingOverviewTable {
+  border-style: none;
+}
+
+.columnColumn {
+  padding-right: 4px;
+}
+
+.subRatingColumn {
+  text-align: right;
+}
+
+.avgRatingColumn {
+  padding-left: 16px;
+}
+
+.ratingSubjects,
+.ratingCandidates {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.ratingSubjects.contentHidden,
+.ratingCandidates.contentHidden {
+  display: block;
+}
+
+.compactRatingRow {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.compactRatingRow .ratingOverview {
+  text-align: center;
+}
+
+.compactRatingRow .totalRating {
+  margin: 0 0 8px;
+}
+
+.compactRatingRow .ratingSubjects {
+  margin-right: 10px;
+}
+
+.playedToggleForm {
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.candidateLvSelect {
+  margin-bottom: 16px;
+  margin-right: 10px;
+}
+
+.candidateLvSelect,
+.candidateMinorLvSelect {
+  display: inline-block;
+}

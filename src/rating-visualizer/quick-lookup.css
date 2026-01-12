@@ -1,0 +1,22 @@
+.quickLookupHeading {
+  padding-left: 4px;
+}
+
+.quickLookup .lookupTable {
+  table-layout: auto;
+}
+
+.qlRankFactorCell {
+  min-width: 76px;
+  padding: 4px;
+  text-align: center;
+}
+
+th.qlRankFactorCell {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+td.qlThresholdCell::after {
+  content: '%';
+}

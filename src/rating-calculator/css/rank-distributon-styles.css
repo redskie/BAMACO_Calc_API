@@ -1,0 +1,42 @@
+.rankDistributionTable {
+  margin-bottom: 22px;
+}
+
+@media only screen and (min-width: 551px) {
+  .rankDistributionTable:first-child {
+    margin-right: 30px;
+  }
+}
+
+.levelRankCell {
+  padding: 4px;
+  width: 60px;
+}
+
+.diffRankCell {
+  padding: 4px 10px;
+}
+
+td.diffRankCell {
+  width: 60px;
+}
+
+td.levelRankCell,
+td.diffRankCell {
+  text-align: center;
+}
+
+.officialLevelCell {
+  width: unset;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.totalCell {
+  width: 80px;
+}
+
+td.totalCell {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+}

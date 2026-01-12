@@ -1,0 +1,28 @@
+.otherToolsHeading {
+  margin-bottom: 10px;
+}
+
+.toolItem {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.toolItem a {
+  color: rgb(0, 56, 216);
+}
+
+.toolItem a:visited {
+  color: rgb(0, 56, 216);
+}
+
+footer {
+  margin-bottom: 40px;
+}
+
+.authorLink {
+  color: inherit;
+}
+
+.authorLink:visited {
+  color: inherit;
+}

@@ -1,0 +1,71 @@
+.inputSelectTable {
+  border-style: none;
+}
+
+.w90 {
+  width: 90%;
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  min-height: 140px;
+  display: block;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline-color: #c179ca;
+  outline-offset: -1px;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.lvInputHeading,
+.scoreInputHeading {
+  margin-bottom: 10px;
+}
+
+.scoreInputSelector {
+  margin-bottom: 5px;
+}
+
+.lvInput {
+  margin-top: 14px;
+}
+
+.radioLabel:first-child {
+  margin-right: 20px;
+}
+
+.radioInput {
+  margin-right: 8px;
+}
+
+.scoreInputArea {
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.actionArea {
+  padding-top: 22px;
+}
+
+.selectFileBtn,
+.clearCacheBtn {
+  font-size: 18px;
+  padding: 4px 12px;
+  margin: 8px 0 0 0;
+}
+
+.analyzeRatingBtn {
+  font-size: 28px;
+  padding: 8px 20px;
+  background-color: #ffc542;
+}
+
+select {
+  display: block;
+  margin-bottom: 4px;
+}

@@ -1,0 +1,24 @@
+.recLvSection {
+  margin-top: 16px;
+}
+
+.recLvDesc {
+  margin: 10px 0 30px 4px;
+  max-height: 999px;
+}
+
+.recLvTable {
+  table-layout: fixed;
+}
+
+.recLvTable th,
+.recLvTable td {
+  min-width: 64px;
+  padding: 4px 16px;
+  text-align: center;
+}
+
+.recLvRankTitle,
+.recLvRankAchv {
+  display: block;
+}
