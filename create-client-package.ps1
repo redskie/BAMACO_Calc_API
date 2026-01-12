@@ -6,7 +6,7 @@ Write-Host "Creating mai-tools API Client Package..." -ForegroundColor Cyan
 # Create package directory
 $packageDir = "mai-tools-api-client"
 if (Test-Path $packageDir) {
-    Remove-Item $packageDir -Recurse -Force
+   Remove-Item $packageDir -Recurse -Force
 }
 New-Item -ItemType Directory -Path $packageDir | Out-Null
 
@@ -21,7 +21,7 @@ Copy-Item "api_demo.html" -Destination $packageDir
 Write-Host "Creating API URL file..." -ForegroundColor Yellow
 $apiUrl = Read-Host "Enter your production API URL (or press Enter for default)"
 if ([string]::IsNullOrWhiteSpace($apiUrl)) {
-    $apiUrl = "https://bamaco-calc-api.onrender.com"
+   $apiUrl = "https://bamaco-calc-api.onrender.com"
 }
 
 @"
@@ -104,7 +104,7 @@ Generated: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 Write-Host "Creating ZIP archive..." -ForegroundColor Yellow
 $zipFile = "mai-tools-api-client.zip"
 if (Test-Path $zipFile) {
-    Remove-Item $zipFile -Force
+   Remove-Item $zipFile -Force
 }
 Compress-Archive -Path "$packageDir\*" -DestinationPath $zipFile
 
