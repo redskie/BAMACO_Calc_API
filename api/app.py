@@ -4,12 +4,22 @@ import math
 from typing import Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 app = FastAPI(
     title="mai-tools-api",
     description="Programmatic access to maimai rating math used by mai-tools.",
     version="0.1.0",
+)
+
+# Enable CORS for browser-based clients
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods
+    allow_headers=["*"],  # Allow all headers
 )
 
 
