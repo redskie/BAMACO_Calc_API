@@ -88,7 +88,12 @@ RANK_DEFINITIONS: List[RankDef] = [
 
 @app.get("/health")
 def health() -> Dict[str, str]:
-    return {"status": "ok"}
+    return {"status": "ok", "cors_enabled": "true", "version": "1.1.0"}
+
+
+@app.get("/version")
+def version() -> Dict[str, str]:
+    return {"version": "1.1.0", "cors": "enabled", "timestamp": "2026-01-12"}
 
 
 @app.get("/ranks", response_model=List[RankDef])
